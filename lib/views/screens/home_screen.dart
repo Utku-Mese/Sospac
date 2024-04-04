@@ -5,6 +5,7 @@ import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
 import '../../utils/constants.dart';
 import 'profile_screen.dart';
+import 'video_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -93,8 +94,8 @@ class _HomeScreenState extends State<HomeScreen> {
             physics: const NeverScrollableScrollPhysics(),
             controller: pageController,
             children: <Widget>[
-              /* VideoScreen(),
-              SearchScreen(),
+              VideoScreen(),
+              /* SearchScreen(),
               const AddVideoScreen(), */
               ProfileScreen(uid: authController.user!.uid)
             ],
