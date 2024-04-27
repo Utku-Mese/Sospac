@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "808071742902",
+    "project_id": "sospac-3cbdd",
+    "storage_bucket": "sospac-3cbdd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808071742902:android:84622d03d8054b3b686d17",
+        "android_client_info": {
+          "package_name": "com.example.sospac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808071742902-f94f9ncd2mfir6rg4kioo8r8vnr13o7o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sospac",
+            "certificate_hash": "e0ec3c2bd6917d071192f42f4ff07aebae2f9426"
+          }
+        },
+        {
+          "client_id": "808071742902-cp4v0b0l3iq0mmp4ea5kh6s1ndti3l68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpp7nCUsnCbNQSORDBCzjjsUVUY6JLbwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808071742902-cp4v0b0l3iq0mmp4ea5kh6s1ndti3l68.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

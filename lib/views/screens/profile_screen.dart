@@ -284,8 +284,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onPressed: () {
                 AwesomeDialog(
                   context: context,
-                  dialogType: DialogType.warning,
-                  animType: AnimType.bottomSlide,
+                  dialogType: DialogType.WARNING,
+                  animType: AnimType.BOTTOMSLIDE,
                   title: 'Are you sure?',
                   desc: 'You want to raport this user?',
                   btnCancelOnPress: () {},

@@ -1,0 +1,49 @@
+name: sospac
+description: Sospac app.
+
+publish_to: "M. Utku Mese"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.6 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  google_fonts: ^4.0.4
+  get: ^4.6.5
+  firebase_auth: ^4.6.3
+  firebase_core: ^2.14.0
+  firebase_storage: ^11.2.4
+  cloud_firestore: ^4.8.2
+  image_picker: ^1.0.0
+  uri_to_file: ^0.2.0
+  water_drop_nav_bar: ^2.2.0+5
+  video_compress: ^3.1.2
+  timeago: ^3.5.0
+  flutter_statusbarcolor_ns: ^0.5.0
+  cached_network_image: ^3.2.3
+  awesome_dialog: ^3.1.0
+  flutter_share: ^2.0.0
+  video_player: ^2.7.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "asset/image/sospac.png"
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - asset/image/
