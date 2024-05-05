@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart'; // Ekledim
 
 import '../../../utils/constants.dart';
 import '../../widgets/text_input_field.dart';
@@ -107,6 +109,45 @@ class LoginScreen extends StatelessWidget {
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: size.height * 0.04),
+              Container(
+                height: 50,
+                width: webView == false ? size.width * 0.75 : size.width * 0.20,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: secondaryColor,
+                ),
+                child: Center(
+                  child: SizedBox(
+                    height: 50,
+                    width: size.width * 0.75,
+                    child: TextButton(
+                      onPressed: () {
+                        authController.loginUserWithGoogle();
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/images/google.png",
+                            height: 30,
+                            width: 30,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "Sign in with Google",
+                            style: GoogleFonts.poppins(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

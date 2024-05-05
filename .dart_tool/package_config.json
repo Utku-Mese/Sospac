@@ -2,10 +2,22 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "_fe_analyzer_shared",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/_fe_analyzer_shared-61.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "_flutterfire_internals",
       "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/_flutterfire_internals-1.3.5",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "analyzer",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/analyzer-5.13.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "archive",
@@ -290,10 +302,52 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "glob",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/glob-2.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "google_fonts",
       "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/google_fonts-4.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "google_identity_services_web",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/google_identity_services_web-0.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "google_sign_in",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/google_sign_in-6.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "google_sign_in_android",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/google_sign_in_android-6.1.22",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "google_sign_in_ios",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/google_sign_in_ios-5.6.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "google_sign_in_platform_interface",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/google_sign_in_platform_interface-2.4.4",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "google_sign_in_web",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/google_sign_in_web-0.12.2+1",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
     },
     {
       "name": "graphs",
@@ -422,6 +476,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "package_config",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/package_config-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
@@ -470,6 +530,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "pigeon",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/pigeon-11.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/platform-3.1.2",
       "packageUri": "lib/",
@@ -486,6 +552,12 @@
       "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/pointycastle-3.7.3",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "pub_semver",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/pub_semver-2.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "rive",
@@ -638,6 +710,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "watcher",
+      "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/watcher-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "water_drop_nav_bar",
       "rootUri": "file:///C:/Users/Utku/AppData/Local/Pub/Cache/hosted/pub.dev/water_drop_nav_bar-2.2.0+5",
       "packageUri": "lib/",
@@ -680,7 +758,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2024-04-27T21:07:29.828350Z",
+  "generated": "2024-05-05T20:24:07.063531Z",
   "generator": "pub",
   "generatorVersion": "3.1.0"
 }

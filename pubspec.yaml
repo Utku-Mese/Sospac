@@ -29,6 +29,7 @@ dependencies:
   awesome_dialog: ^3.1.0
   flutter_share: ^2.0.0
   video_player: ^2.7.2
+  google_sign_in: ^6.1.6
 
 dev_dependencies:
   flutter_test:

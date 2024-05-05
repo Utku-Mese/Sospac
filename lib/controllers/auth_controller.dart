@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import '../models/user_model.dart' as Umodel;
 import '../utils/constants.dart';
@@ -22,6 +23,8 @@ class AuthController extends GetxController {
   File? get profilePhoto => _pickedImage.value;
 
   User? get user => _user.value;
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   @override
   void onReady() {
@@ -128,6 +131,34 @@ class AuthController extends GetxController {
     } catch (e) {
       Get.snackbar(
         "Error logging in",
+        e.toString(),
+      );
+    }
+  }
+
+  void loginUserWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+
+      if (googleUser != null) {
+        final GoogleSignInAuthentication googleAuth =
+            await googleUser.authentication;
+
+        final AuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+
+        final UserCredential userCredential =
+            await firebaseAuth.signInWithCredential(credential);
+
+        if (userCredential.user != null) {
+           Get.offAll(() => const HomeScreen()); //Todo: Look here (gerekmeyebilir)
+        }
+      }
+    } catch (e) {
+      Get.snackbar(
+        "Google Sign In Error",
         e.toString(),
       );
     }
