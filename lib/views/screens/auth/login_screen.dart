@@ -120,7 +120,7 @@ class LoginScreen extends StatelessWidget {
                 width: webView == false ? size.width * 0.75 : size.width * 0.20,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: secondaryColor,
+                  color: Colors.white.withOpacity(0.25),
                 ),
                 child: Center(
                   child: SizedBox(
@@ -134,7 +134,7 @@ class LoginScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
-                            "assets/images/google.png",
+                            "asset/image/google.png",
                             height: 30,
                             width: 30,
                           ),
