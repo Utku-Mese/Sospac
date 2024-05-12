@@ -135,10 +135,24 @@ class ProfileController extends GetxController {
   }
 
   reportUser() async {
-    await firestore.collection("reports").add({
-      "uid": _uid.value,
-      "reportedBy": authController.user!.uid,
-      "createdAt": FieldValue.serverTimestamp(),
-    });
+    if (authController.user!.uid == _uid.value) {
+      Get.snackbar(
+        "Error",
+        "You can't report yourself",
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
+    } else {
+      await firestore.collection("reports").add({
+        "uid": _uid.value,
+        "reportedBy": authController.user!.uid,
+        "time": Timestamp.now(),
+      });
+      Get.snackbar(
+        "Success",
+        "User reported successfully",
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
   }
 }

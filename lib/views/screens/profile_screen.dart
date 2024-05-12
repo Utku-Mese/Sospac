@@ -291,9 +291,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   btnCancelOnPress: () {},
                   btnOkOnPress: () {
                     profileController.reportUser();
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Text("User Reported Successfully"),
-                    ));
                   },
                 ).show();
               },
