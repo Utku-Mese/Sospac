@@ -133,4 +133,12 @@ class ProfileController extends GetxController {
     );
     update();
   }
+
+  reportUser() async {
+    await firestore.collection("reports").add({
+      "uid": _uid.value,
+      "reportedBy": authController.user!.uid,
+      "createdAt": FieldValue.serverTimestamp(),
+    });
+  }
 }

@@ -289,7 +289,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: 'Are you sure?',
                   desc: 'You want to raport this user?',
                   btnCancelOnPress: () {},
-                  btnOkOnPress: () {},
+                  btnOkOnPress: () {
+                    profileController.reportUser();
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text("User Reported Successfully"),
+                    ));
+                  },
                 ).show();
               },
               child: const Text('Report User'),
