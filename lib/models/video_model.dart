@@ -13,6 +13,7 @@ class Video {
   int commentCount;
   int shareCount;
   DateTime createdAt;
+  bool isVisible;
 
   Video({
     required this.username,
@@ -27,6 +28,7 @@ class Video {
     required this.commentCount,
     required this.shareCount,
     required this.createdAt,
+    required this.isVisible,
   });
 
   Map<String, dynamic> toJson() => {
@@ -42,6 +44,7 @@ class Video {
         'commentCount': commentCount,
         'shareCount': shareCount,
         'createdAt': createdAt,
+        'isVisible': isVisible,
       };
 
   static Video fromSnap(DocumentSnapshot snap) {
@@ -59,6 +62,7 @@ class Video {
         likes: snapshot['likes'],
         commentCount: snapshot['commentCount'],
         shareCount: snapshot['shareCount'],
+        isVisible: snapshot['isVisible'],
         createdAt: snapshot['createdAt'].toDate());
   }
 }

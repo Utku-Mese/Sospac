@@ -92,6 +92,7 @@ class UploadVideoController extends GetxController {
         likes: [],
         commentCount: 0,
         shareCount: 0,
+        isVisible: true,
         createdAt: DateTime.now(),
       );
 
