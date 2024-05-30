@@ -42,6 +42,23 @@ class AuthController extends GetxController {
     }
   }
 
+  void sendPasswordResetEmail(String email) async {
+    try {
+      await firebaseAuth.sendPasswordResetEmail(email: email);
+      Get.snackbar(
+        "Password Reset",
+        "Password reset email has been sent!",
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    } catch (e) {
+      Get.snackbar(
+        "Error",
+        "Failed to send password reset email",
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
+  }
+
   void pickImage() async {
     final picedImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);

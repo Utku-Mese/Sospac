@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart'; // Ekledim
@@ -85,7 +84,27 @@ class LoginScreen extends StatelessWidget {
                   icon: Icons.lock,
                 ),
               ),
-              SizedBox(height: size.height * 0.06),
+              Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        _showForgotPasswordDialog(context);
+                      },
+                      child: Text(
+                        "Forgot Password?",
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: size.height * 0.02),
               Container(
                 height: 50,
                 width: webView == false ? size.width * 0.75 : size.width * 0.20,
@@ -177,6 +196,90 @@ class LoginScreen extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 18,
                         color: secondaryColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showForgotPasswordDialog(BuildContext context) {
+    final TextEditingController _resetEmailController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        child: Container(
+          padding: EdgeInsets.all(20.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0),
+            color: Colors.white,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                'Reset Password',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20.0),
+              TextField(
+                controller: _resetEmailController,
+                decoration: InputDecoration(
+                  hintText: "Enter your email",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      'Cancel',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      authController
+                          .sendPasswordResetEmail(_resetEmailController.text);
+                      Navigator.pop(context); 
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                    child: Text(
+                      'Reset',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
                       ),
                     ),
                   ),
