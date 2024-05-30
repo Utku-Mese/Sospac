@@ -30,6 +30,7 @@ dependencies:
   flutter_share: ^2.0.0
   video_player: ^2.7.2
   google_sign_in: ^6.1.6
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
