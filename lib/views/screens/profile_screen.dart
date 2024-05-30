@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sospac/views/screens/video_player_screen.dart';
 import '../../controllers/profile_controller.dart';
 import '../../utils/constants.dart';
+import '../widgets/video_player_item.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String uid;
@@ -125,7 +127,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               child: Column(
                                 children: [
                                   Text(
-                                    "Folowing",
+                                    "Following",
                                     style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 15,
@@ -150,7 +152,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               child: Column(
                                 children: [
                                   Text(
-                                    "Folowers",
+                                    "Followers",
                                     style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 15,
@@ -254,12 +256,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       itemBuilder: (context, index) {
                         String thumbnail = controller.user["thumbnails"][index];
+                        String videoId = controller.user["videoIds"][index];
 
                         return ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: CachedNetworkImage(
-                            imageUrl: thumbnail,
-                            fit: BoxFit.cover,
+                          child: InkWell(
+                            onTap: () async {
+                              String videoUrl =
+                                  await controller.getVideoUrl(videoId);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => VideoPlayerScreen(
+                                    videoUrl: videoUrl,
+                                  ),
+                                ),
+                              );
+                            },
+                            child: CachedNetworkImage(
+                              imageUrl: thumbnail,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         );
                       },
@@ -287,7 +304,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   dialogType: DialogType.WARNING,
                   animType: AnimType.BOTTOMSLIDE,
                   title: 'Are you sure?',
-                  desc: 'You want to raport this user?',
+                  desc: 'You want to report this user?',
                   btnCancelOnPress: () {},
                   btnOkOnPress: () {
                     profileController.reportUser();
@@ -301,7 +318,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Comming Soon'),
+              child: const Text('Coming Soon'),
             ),
             const SizedBox(height: 10),
             SimpleDialogOption(

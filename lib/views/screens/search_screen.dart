@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sospac/views/screens/video_player_screen.dart';
 
 import '../../controllers/search_controller.dart';
 import '../../controllers/video_controller.dart';
@@ -299,13 +300,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => ProfileScreen(
-                      uid: video.username,
-                    ),
-                  ),
-                );
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      VideoPlayerScreen(videoUrl: video.videoUrl),
+                ));
               },
             );
           },

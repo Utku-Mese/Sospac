@@ -17,13 +17,16 @@ class ProfileController extends GetxController {
 
   getUserData() async {
     List<String> thumbnails = [];
+    List<String> videoIds = [];
     var myVideos = await firestore
         .collection("videos")
         .where("uid", isEqualTo: _uid.value)
         .get();
 
     for (int i = 0; i < myVideos.docs.length; i++) {
-      thumbnails.add((myVideos.docs[i].data() as dynamic)["thumbnail"]);
+      var videoData = myVideos.docs[i].data() as dynamic;
+      thumbnails.add(videoData["thumbnail"]);
+      videoIds.add(myVideos.docs[i].id); // Video ID'yi ekle
     }
 
     DocumentSnapshot userDoc =
@@ -78,6 +81,7 @@ class ProfileController extends GetxController {
       "following": following.toString(),
       "isFollowing": isFollowing,
       "thumbnails": thumbnails,
+      "videoIds": videoIds, // Video ID'leri ekle
     };
     update();
   }
@@ -154,5 +158,10 @@ class ProfileController extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
       );
     }
+  }
+
+  Future<String> getVideoUrl(String videoId) async {
+    DocumentSnapshot videoDoc = await firestore.collection("videos").doc(videoId).get();
+    return (videoDoc.data() as dynamic)["videoUrl"];
   }
 }
