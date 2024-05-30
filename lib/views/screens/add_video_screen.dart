@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-
-import 'comfirm_screen.dart';
+import 'package:sospac/views/screens/comfirm_screen.dart';
 
 class AddVideoScreen extends StatelessWidget {
   const AddVideoScreen({super.key});
@@ -13,6 +12,32 @@ class AddVideoScreen extends StatelessWidget {
   pickVideo(ImageSource source, BuildContext context) async {
     final video = await ImagePicker().pickVideo(source: source);
     if (video != null) {
+      final file = File(video.path);
+      final fileSize = await file.length();
+      final fileExtension = file.path.split('.').last;
+
+      if (fileSize > 50000000) {
+        // 50MB
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Video size exceeds the limit of 50MB."),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+
+      if (!['mp4', 'mov'].contains(fileExtension)) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content:
+                Text("Unsupported video format. Please upload MP4 or MOV."),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => ConfirmScreen(
@@ -182,10 +207,44 @@ class AddVideoScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 20),
+            Text(
+              "Follow the steps to share your video:",
+              style: GoogleFonts.poppins(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              "1. Tap 'Add Video' button",
+              style: GoogleFonts.poppins(
+                fontSize: 18,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              "2. Choose 'Camera' or 'Gallery'",
+              style: GoogleFonts.poppins(
+                fontSize: 18,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              "3. Confirm and upload",
+              style: GoogleFonts.poppins(
+                fontSize: 18,
+                color: Colors.white,
+              ),
+            ),
             const SizedBox(height: 110),
             InkWell(
               onTap: () => showOptionsDialog(context),
-              child: Container(
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 300),
                 margin: const EdgeInsets.symmetric(horizontal: 60),
                 decoration: const BoxDecoration(
                   color: Colors.amber,
